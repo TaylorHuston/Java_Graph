@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 /**
  Depth First search of a graph
  Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
@@ -9,11 +7,11 @@ public class DepthFirst {
     private int[] edgeTo; //Last vertex on known path to this vertext
     private final int source; //Starting vertex
 
-    public DepthFirst(UndirectedGraph G, int toSearch) {
+    public DepthFirst(UndirectedGraph G, int source) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
-        source = toSearch;
-        dfs(G, toSearch);
+        this.source = source;
+        dfs(G, source);
     }
 
     //Recursively traverse each path until you reach a 'dead end'
