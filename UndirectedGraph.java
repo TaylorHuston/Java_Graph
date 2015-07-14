@@ -4,6 +4,9 @@
  */
 public class UndirectedGraph {
 
+    private final int V; //# of vertices
+    private int E; //# of edges
+    private Bag<Integer>[] adjLists;  //Array of adjacency lists
     //Constructor with a pre-supplied number if vertices
     UndirectedGraph(int V) {
 
