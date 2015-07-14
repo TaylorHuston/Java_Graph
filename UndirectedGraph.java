@@ -68,7 +68,6 @@ public class UndirectedGraph {
         return s;
     }
 
-    //Sample Client code operations on an Undirected Graph
     public static void main (String args[]) {
         In in = new In(args[0]);
         UndirectedGraph G = new UndirectedGraph(in);
