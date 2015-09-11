@@ -17,8 +17,8 @@ public class GraphTester {
         StdOut.println("Depth First Path from vertex 12 to vertex 9: " + dfs.pathTo(9));
         dfs = new DepthFirst(UD, 9);
         StdOut.println("Depth First Path from vertex 9 to vertex 12: " + dfs.pathTo(12));
-        BreadthFirst bfs = new BreadthFirst(UD, 0);
-        StdOut.println("Shortest Path from vertex 0 to vertex 5: " + bfs.pathTo(5));
+        BreadthFirst bfs = new BreadthFirst(UD, 9);
+        StdOut.println("Shortest Path from vertex 9 to vertex 12: " + bfs.pathTo(12));
         StdOut.println();
 
         ConnectedComponents cc = new ConnectedComponents(UD);

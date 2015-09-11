@@ -3,16 +3,15 @@
  Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class ConnectedComponents {
-    private boolean[] marked;
-    private int[] id;
-    private int count;
+    private boolean[] marked; //To check vertices that have already been visited
+    private int[] id; //The id of each CC
+    private int count; //Number of CCs, also used to identify each one
 
     public ConnectedComponents(UndirectedGraph G) {
         marked = new boolean[G.V()];
         id = new int[G.V()];
 
-        //Cycle through graph and run a dfs on any unvisited vertext, that constitutes a new
-        //connected component
+        //Cycle through graph and run a dfs on any unvisited vertex, that constitutes a new CC
         for (int i = 0; i < G.V(); i++) {
             if (marked[i] == false) {
                 dfs(G, i);
@@ -21,7 +20,7 @@ public class ConnectedComponents {
         }
     }
 
-    //Depth First mark each vertext in a given connected component
+    //Mark each vertex adjacent to the given vertex and set the ID of the CC that it belongs to
     private void dfs(UndirectedGraph G, int v) {
         marked[v] = true;
         id[v] = count;

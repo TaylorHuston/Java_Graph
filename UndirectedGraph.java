@@ -50,7 +50,7 @@ public class UndirectedGraph {
         E++;
     }
 
-    //Retieve iterable list of vertices adjacent to vertex
+    //Retrieve iterable list of vertices adjacent to vertex
     public Iterable<Integer> adj(int vertex) {
         return adjLists[vertex];
     }
@@ -68,7 +68,7 @@ public class UndirectedGraph {
         return s;
     }
 
-    public static void main (String args[]) {
+    public static void main (String[] args) {
         In in = new In(args[0]);
         UndirectedGraph G = new UndirectedGraph(in);
         StdOut.println(G);

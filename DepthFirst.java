@@ -3,8 +3,8 @@
  Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class DepthFirst {
-    private boolean[] marked;
-    private int[] edgeTo; //Last vertex on known path to this vertext
+    private boolean[] marked; //Keep track of already visited vertices
+    private int[] edgeTo; //Last vertex on known path to this vertex
     private final int source; //Starting vertex
 
     public DepthFirst(UndirectedGraph G, int source) {
