@@ -1,5 +1,3 @@
-import java.util.*;
-
 /**
  Breadth First search of a graph
  Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
@@ -9,7 +7,7 @@ public class BreadthFirst {
     private int[] edgeTo; //Last vertex on known path to this vertex
     private final int source; //Source vertex
 
-    public BreadthFirst(UndirectedGraph G, int source) {
+    public BreadthFirst(Graph G, int source) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.source = source;
@@ -17,7 +15,7 @@ public class BreadthFirst {
     }
 
     //Find the shortest path to the vertex toFind from the source
-    private void bfs(UndirectedGraph G, int toFind) {
+    private void bfs(Graph G, int toFind) {
         //Mark source and put it on the queue
         Queue<Integer> queue = new Queue<Integer>();
         marked[source] = true;

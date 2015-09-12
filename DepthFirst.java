@@ -7,7 +7,7 @@ public class DepthFirst {
     private int[] edgeTo; //Last vertex on known path to this vertex
     private final int source; //Starting vertex
 
-    public DepthFirst(UndirectedGraph G, int source) {
+    public DepthFirst(Graph G, int source) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.source = source;
@@ -15,7 +15,7 @@ public class DepthFirst {
     }
 
     //Recursively traverse each path until you reach a 'dead end'
-    private void dfs(UndirectedGraph G, int current) {
+    private void dfs(Graph G, int current) {
         marked[current] = true;
         for (int next : G.adj(current)) {
             if (marked[next] == false) {

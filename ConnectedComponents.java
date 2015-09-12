@@ -7,7 +7,7 @@ public class ConnectedComponents {
     private int[] id; //The id of each CC
     private int count; //Number of CCs, also used to identify each one
 
-    public ConnectedComponents(UndirectedGraph G) {
+    public ConnectedComponents(Graph G) {
         marked = new boolean[G.V()];
         id = new int[G.V()];
 
@@ -21,7 +21,7 @@ public class ConnectedComponents {
     }
 
     //Mark each vertex adjacent to the given vertex and set the ID of the CC that it belongs to
-    private void dfs(UndirectedGraph G, int v) {
+    private void dfs(Graph G, int v) {
         marked[v] = true;
         id[v] = count;
 

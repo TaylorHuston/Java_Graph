@@ -2,14 +2,14 @@
  Undirected Graph implementation
  Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
-public class UndirectedGraph {
+public class Graph {
 
     private final int V; //# of vertices
     private int E; //# of edges
     private Bag<Integer>[] adjLists;  //Array of adjacency lists
 
     //Constructor with a pre-supplied number of vertices
-    UndirectedGraph (int V) {
+    Graph(int V) {
         this.V = V;
         this.E = 0;
         adjLists = (Bag<Integer>[]) new Bag[V];
@@ -21,7 +21,7 @@ public class UndirectedGraph {
     }
 
     //Constructor with a graph built from input stream
-    UndirectedGraph (In in) {
+    Graph(In in) {
         this(in.readInt());
         int E = in.readInt();
 
@@ -70,7 +70,7 @@ public class UndirectedGraph {
 
     public static void main (String[] args) {
         In in = new In(args[0]);
-        UndirectedGraph G = new UndirectedGraph(in);
+        Graph G = new Graph(in);
         StdOut.println(G);
 
     }

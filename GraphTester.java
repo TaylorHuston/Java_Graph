@@ -6,7 +6,7 @@ public class GraphTester {
 
     public static void main(String args[]) {
         In in = new In(args[0]);
-        UndirectedGraph UD = new UndirectedGraph(in);
+        Graph UD = new Graph(in);
         StdOut.println("Generated Graph:");
         StdOut.println(UD);
         StdOut.println("Degree of vertex 3 is " + degree(UD, 3));
@@ -45,7 +45,7 @@ public class GraphTester {
     }
 
     //Computer the degree of vertex V
-    public static int degree(UndirectedGraph G, int V) {
+    public static int degree(Graph G, int V) {
         int degree = 0;
         for (int w : G.adj(V)) {
             degree++;
@@ -54,7 +54,7 @@ public class GraphTester {
     }
 
     //Find the vertex with the largest degree
-    public static int maxDegree(UndirectedGraph G) {
+    public static int maxDegree(Graph G) {
         int max = 0;
         for (int v = 0; v < G.V(); v++) {
             int temp = degree(G, v);
@@ -66,7 +66,7 @@ public class GraphTester {
     }
 
     //Compute the average degree
-    public static double averageDegree (UndirectedGraph G) {
+    public static double averageDegree (Graph G) {
         return (2.0 * G.E()/G.V());
     }
 
