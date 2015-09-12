@@ -4,9 +4,9 @@
  */
 public class Graph {
 
-    private final int V; //# of vertices
-    private int E; //# of edges
-    private Bag<Integer>[] adjLists;  //Array of adjacency lists
+    protected final int V; //# of vertices
+    protected int E; //# of edges
+    protected Bag<Integer>[] adjLists;  //Array of adjacency lists
 
     //Constructor with a pre-supplied number of vertices
     Graph(int V) {
