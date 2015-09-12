@@ -35,11 +35,11 @@ public class DepthFirst {
         if (hasPathTo(v) == false) {
             return null;
         }
-        Stack<Integer> path = new Stack<Integer>();
+        Queue<Integer> path = new Queue<Integer>();
         for (int i = v; i != source; i = edgeTo[i]) {
-            path.push(i);
+            path.enqueue(i);
         }
-        path.push(source);
+        path.enqueue(source);
         return path;
     }
 

@@ -23,6 +23,17 @@ public class Digraph extends Graph {
         E++;
     }
 
+    public String toString() {
+        String s = V + " vertices, " + E + " edges\n";
+
+        for (int v = 0; v < V; v++) {
+            for (int e : this.adj(v)) {
+                s += v + " -> " + e + "\n";
+            }
+        }
+        return s;
+    }
+
     public static void main (String[] args) {
         In in = new In(args[0]);
         Digraph G = new Digraph(in);
