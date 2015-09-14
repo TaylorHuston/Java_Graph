@@ -1,5 +1,5 @@
 /**
- Calculates the number of connected components on a graph via Depth First Search
+ Calculates the number of connected components on an Undirected Graph via Depth First Search
  Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class ConnectedComponents {
@@ -11,7 +11,7 @@ public class ConnectedComponents {
         marked = new boolean[G.V()];
         id = new int[G.V()];
 
-        //Cycle through graph and run a dfs on any unvisited vertex, that constitutes a new CC
+        //Cycle through graph and run a Depth First Search on any unvisited vertex, that constitutes a new CC
         for (int i = 0; i < G.V(); i++) {
             if (marked[i] == false) {
                 dfs(G, i);
