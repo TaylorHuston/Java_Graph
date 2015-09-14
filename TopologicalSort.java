@@ -1,5 +1,6 @@
 /**
- * Created by Taylor on 9/13/2015.
+ Calculates the
+ Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class TopologicalSort {
     private boolean[] marked; //Keep track of already visited vertices
