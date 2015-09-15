@@ -1,5 +1,5 @@
 /**
- * Calculates the
+ * Calculates the preorder, postorder and reverse postorder of the vertices in a Directed Graph
  * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class DepthOrder {

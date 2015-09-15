@@ -51,6 +51,7 @@ public class Digraph extends Graph {
         Digraph DG = new Digraph(in);
         DepthOrder sorted = new DepthOrder(DG);
         DirectedCycle hasCycle = new DirectedCycle(DG);
+        Topological topSort = new Topological(DG);
 
         StdOut.println("Generated Directed Graph:");
         StdOut.println(DG);
@@ -60,6 +61,10 @@ public class Digraph extends Graph {
         StdOut.println("Preorder: " + sorted.pre());
         StdOut.println("Postorder: " + sorted.post());
         StdOut.println("Reverse Postorder: " + sorted.reversePost());
+
+        if (topSort.isDAG() == true) {
+            StdOut.println("Topological sort: " + topSort.order());
+        }
 
     }
 }
