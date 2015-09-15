@@ -2,13 +2,13 @@
  * Calculates the
  * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
-public class TopologicalSort {
+public class DepthOrder {
     private boolean[] marked;           //Keep track of already visited vertices
     private Queue<Integer> pre;         //Vertices in preorder
     private Queue<Integer> post;        //Vertices in postorder
     private Stack<Integer> reversePost; //Vertices in reverse postorder
 
-    public TopologicalSort(Digraph G) {
+    public DepthOrder(Digraph G) {
         pre         = new Queue<>();
         post        = new Queue<>();
         reversePost = new Stack<>();
