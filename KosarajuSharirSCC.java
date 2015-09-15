@@ -2,12 +2,12 @@
  * Calculates the number of strongly connected components on an Directed Graph via Depth First Search
  * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
-public class StronglyConnectedComponents {
+public class KosarajuSharirSCC {
     private boolean[] marked;   //To check vertices that have already been visited
     private int[] id;           //The id of each CC
     private int count;          //Number of CCs, also used to identify each one
 
-    StronglyConnectedComponents(Digraph G) {
+    KosarajuSharirSCC(Digraph G) {
         marked  = new boolean[G.V()];
         id      = new int[G.V()];
 

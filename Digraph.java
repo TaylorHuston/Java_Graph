@@ -67,7 +67,7 @@ public class Digraph extends Graph {
             StdOut.println("Topological sort: " + topSort.order());
         }
 
-        StronglyConnectedComponents scc = new StronglyConnectedComponents(DG);
+        KosarajuSharirSCC scc = new KosarajuSharirSCC(DG);
         // number of connected components
         int M = scc.count();
         StdOut.println(M + " components");
