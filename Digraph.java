@@ -25,13 +25,13 @@ public class Digraph extends Graph {
 
     //Return this graph with all of the edges reversed
     public Digraph reverse() {
-        Digraph reversed = new Digraph(V);
-        for (int first = 0; first < V; first++) {
-            for (int second : adj(first)) {
-                reversed.addEdge(second, first);
+        Digraph R = new Digraph(V);
+        for (int v = 0; v < V; v++) {
+            for (int w : adj(v)) {
+                R.addEdge(w, v);
             }
         }
-        return reversed;
+        return R;
     }
 
     public String toString() {
@@ -49,22 +49,46 @@ public class Digraph extends Graph {
     public static void main(String args[]) {
         In in = new In(args[0]);
         Digraph DG = new Digraph(in);
-        DepthOrder sorted = new DepthOrder(DG);
-        DirectedCycle hasCycle = new DirectedCycle(DG);
-        Topological topSort = new Topological(DG);
-
         StdOut.println("Generated Directed Graph:");
         StdOut.println(DG);
+        Digraph RDG = DG.reverse();
+        StdOut.println(RDG);
 
+        DirectedCycle hasCycle = new DirectedCycle(DG);
         StdOut.println("This Directed Graph contains a cycle: " + hasCycle.hasCycle());
 
+        DepthOrder sorted = new DepthOrder(DG);
         StdOut.println("Preorder: " + sorted.pre());
         StdOut.println("Postorder: " + sorted.post());
         StdOut.println("Reverse Postorder: " + sorted.reversePost());
 
+        Topological topSort = new Topological(DG);
         if (topSort.isDAG() == true) {
             StdOut.println("Topological sort: " + topSort.order());
         }
+
+        StronglyConnectedComponents scc = new StronglyConnectedComponents(DG);
+        // number of connected components
+        int M = scc.count();
+        StdOut.println(M + " components");
+
+        // compute list of vertices in each strong component
+        Queue<Integer>[] components = (Queue<Integer>[]) new Queue[M];
+        for (int i = 0; i < M; i++) {
+            components[i] = new Queue<Integer>();
+        }
+        for (int v = 0; v < DG.V(); v++) {
+            components[scc.id(v)].enqueue(v);
+        }
+
+        // print results
+        for (int i = 0; i < M; i++) {
+            for (int v : components[i]) {
+                StdOut.print(v + " ");
+            }
+            StdOut.println();
+        }
+
 
     }
 }

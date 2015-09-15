@@ -70,9 +70,7 @@ public class Graph {
 
     public static void main(String[] args) {
         In in = new In(args[0]);
-        In in2 = new In(args[0]);
-        Graph UD = new Graph(in2);
-        Digraph DG = new Digraph(in);
+        Graph UD = new Graph(in);
 
         StdOut.println("Generated Undirected Graph:");
         StdOut.println(UD);
