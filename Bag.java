@@ -1,6 +1,6 @@
 /**
- Bag ADT implementation
- Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
+ * Bag ADT implementation
+ * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 
 import java.util.Iterator;
@@ -33,7 +33,7 @@ public class Bag<T> implements Iterable<T> {
 
         public T next() {
             T item = current.item;
-            current= current.next;
+            current = current.next;
             return item;
         }
     }

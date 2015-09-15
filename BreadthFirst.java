@@ -1,6 +1,6 @@
 /**
- Breadth First search of a graph
- Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
+ * Breadth First search of a graph
+ * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class BreadthFirst {
     private boolean[] marked; //Is a shortest path to this vertex known?
@@ -26,15 +26,15 @@ public class BreadthFirst {
             int last = queue.dequeue();
             for (int i : G.adj(last)) {
                 if (marked[i] == false) {
-                        edgeTo[i] = last; //Last edge on shortest path
-                        marked[i] = true;
-                        queue.enqueue(i);
+                    edgeTo[i] = last; //Last edge on shortest path
+                    marked[i] = true;
+                    queue.enqueue(i);
                 }
             }
         }
     }
 
-    public boolean hasPathTo(int v){
+    public boolean hasPathTo(int v) {
         return marked[v];
     }
 

@@ -1,6 +1,6 @@
 /**
- Calculates the number of connected components on an Undirected Graph via Depth First Search
- Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
+ * Calculates the number of connected components on an Undirected Graph via Depth First Search
+ * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class ConnectedComponents {
     private boolean[] marked; //To check vertices that have already been visited
@@ -26,9 +26,9 @@ public class ConnectedComponents {
         id[v] = count;
 
         for (int i : G.adj(v)) {
-                if (marked[i] == false) {
-                    dfs(G, i);
-                }
+            if (marked[i] == false) {
+                dfs(G, i);
+            }
         }
     }
 

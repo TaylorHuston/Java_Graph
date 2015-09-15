@@ -1,9 +1,8 @@
 /**
- Undirected Graph implementation
- Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
+ * Directed Graph implementation
+ * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class Digraph extends Graph {
-
     Digraph(int V) {
         super(V);
     }
@@ -24,6 +23,17 @@ public class Digraph extends Graph {
         E++;
     }
 
+    //Return this graph with all of the edges reversed
+    public Digraph reverse() {
+        Digraph reversed = new Digraph(V);
+        for (int first = 0; first < V; first++) {
+            for (int second : adj(first)) {
+                reversed.addEdge(second, first);
+            }
+        }
+        return reversed;
+    }
+
     public String toString() {
         String s = V + " vertices, " + E + " edges\n";
 
@@ -38,12 +48,14 @@ public class Digraph extends Graph {
 
     public static void main(String args[]) {
         In in = new In(args[0]);
-        In in2 = new In(args[0]);
-        Graph UD = new Graph(in2);
         Digraph DG = new Digraph(in);
 
         StdOut.println("Generated Directed Graph:");
         StdOut.println(DG);
+
+        DirectedCycle hasCycle = new DirectedCycle(DG);
+        StdOut.println("This Directed Graph contains a cycle: " + hasCycle.hasCycle());
+
         StdOut.println("Degree of vertex 5 is " + degree(DG, 5));
         StdOut.println("Max degree is " + maxDegree(DG));
         StdOut.println("Average degree is " + averageDegree(DG));
@@ -80,8 +92,8 @@ public class Digraph extends Graph {
     }
 
     //Compute the average degree
-    public static double averageDegree (Graph G) {
-        return (2.0 * G.E()/G.V());
+    public static double averageDegree(Graph G) {
+        return (2.0 * G.E() / G.V());
     }
 }
 

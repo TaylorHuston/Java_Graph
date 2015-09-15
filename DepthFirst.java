@@ -1,6 +1,6 @@
 /**
- Depth First search of a graph
- Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
+ * Depth First search of a graph
+ * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class DepthFirst {
     private boolean[] marked; //Keep track of already visited vertices

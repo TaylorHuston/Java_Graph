@@ -1,6 +1,6 @@
 /**
- Undirected Graph implementation
- Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
+ * Undirected Graph implementation
+ * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class Graph {
 
@@ -68,7 +68,7 @@ public class Graph {
         return s;
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         In in = new In(args[0]);
         In in2 = new In(args[0]);
         Graph UD = new Graph(in2);
@@ -133,7 +133,7 @@ public class Graph {
     }
 
     //Compute the average degree
-    public static double averageDegree (Graph G) {
-        return (2.0 * G.E()/G.V());
+    public static double averageDegree(Graph G) {
+        return (2.0 * G.E() / G.V());
     }
 }
