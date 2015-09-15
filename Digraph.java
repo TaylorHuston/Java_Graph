@@ -49,6 +49,7 @@ public class Digraph extends Graph {
     public static void main(String args[]) {
         In in = new In(args[0]);
         Digraph DG = new Digraph(in);
+        TopologicalSort sorted = new TopologicalSort(DG);
 
         StdOut.println("Generated Directed Graph:");
         StdOut.println(DG);
@@ -56,9 +57,9 @@ public class Digraph extends Graph {
         DirectedCycle hasCycle = new DirectedCycle(DG);
         StdOut.println("This Directed Graph contains a cycle: " + hasCycle.hasCycle());
 
-        StdOut.println("Degree of vertex 5 is " + degree(DG, 5));
-        StdOut.println("Max degree is " + maxDegree(DG));
-        StdOut.println("Average degree is " + averageDegree(DG));
+        StdOut.println("Preorder: " + sorted.pre());
+        StdOut.println("Postorder: " + sorted.post());
+        StdOut.println("Reverse Postorder: " + sorted.reversePost());
 
         DepthFirst dfs = new DepthFirst(DG, 12);
         StdOut.println("Depth First Path from vertex 12 to vertex 9: " + dfs.pathTo(9));

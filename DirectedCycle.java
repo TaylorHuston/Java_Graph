@@ -23,7 +23,6 @@ public class DirectedCycle {
 
     //Recursively traverse each path until you reach a 'dead end'
     private void dfs(Digraph G, int current) {
-        StdOut.println("here");
         onStack[current] = true;
         marked[current] = true;
         for (int next : G.adj(current)) {

@@ -3,30 +3,46 @@
  * Based on Algorithms, 4th Ed by Robert Sedgewick | Kevin Wayne
  */
 public class TopologicalSort {
-    private boolean[] marked; //Keep track of already visited vertices
-    private Stack<Integer> topSorted;
+    private boolean[] marked;           //Keep track of already visited vertices
+    private Queue<Integer> pre;         //Vertices in preorder
+    private Queue<Integer> post;        //Vertices in postorder
+    private Stack<Integer> reversePost; //Vertices in reverse postorder
 
-    public TopologicalSort(Graph G, int source) {
-        topSorted = new Stack<Integer>();
-        marked = new boolean[G.V()];
+    public TopologicalSort(Digraph G) {
+        pre         = new Queue<>();
+        post        = new Queue<>();
+        reversePost = new Stack<>();
+        marked      = new boolean[G.V()];
+
         for (int v = 0; v < G.V(); v++) {
-            dfs(G, v);
+            if (marked[v] == false) {
+                dfs(G, v);
+            }
         }
     }
 
     //Recursively traverse each path until you reach a 'dead end'
     private void dfs(Graph G, int current) {
+        pre.enqueue(current);
         marked[current] = true;
+
         for (int next : G.adj(current)) {
             if (marked[next] == false) {
                 dfs(G, next);
             }
-            topSorted.push(current);
         }
+        post.enqueue(current);
+        reversePost.push(current);
     }
 
-    //Return the stack
-    public Iterable<Integer> sorted() {
-        return topSorted;
+    //Return the various sorted orders
+    public Iterable<Integer> pre() {
+        return pre;
+    }
+    public Iterable<Integer> post() {
+        return post;
+    }
+    public Iterable<Integer> reversePost() {
+        return reversePost;
     }
 }
